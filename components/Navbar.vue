@@ -12,11 +12,15 @@
     "
   >
     <div class="px-2 mx-2 navbar-start">
-      <span class="text-lg font-bold"> daisyUI </span>
+      <NuxtLink class="text-lg font-medium cursor-pointer" to="/"
+        >Ever Estoria</NuxtLink
+      >
     </div>
     <div class="hidden px-2 mx-2 navbar-center lg:flex">
       <div class="flex items-stretch">
-        <a class="btn btn-ghost btn-sm rounded-btn"> Home </a>
+        <NuxtLink class="btn btn-ghost btn-sm rounded-btn" to="/products"
+          >Products</NuxtLink
+        >
         <a class="btn btn-ghost btn-sm rounded-btn"> Portfolio </a>
         <a class="btn btn-ghost btn-sm rounded-btn"> About </a>
         <a class="btn btn-ghost btn-sm rounded-btn"> Contact </a>

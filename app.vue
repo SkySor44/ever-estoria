@@ -1,7 +1,9 @@
 <template>
   <div data-theme="bekah">
     <Navbar />
-    <NuxtPage />
+    <section class="app-content">
+      <NuxtPage />
+    </section>
     <Footer />
   </div>
 </template>
@@ -11,3 +13,9 @@ import "./css/tailwind.css";
 import "@/components/Navbar.vue";
 import "@/components/Footer.vue";
 </script>
+
+<style lang="postcss" scoped>
+.app-content {
+  padding-top: 64px;
+}
+</style>
