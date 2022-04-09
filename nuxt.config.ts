@@ -1,22 +1,13 @@
-import { defineNuxtConfig } from "nuxt3";
+import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  buildModules: ["@pinia/nuxt"],
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
-    },
-  },
-  vite: {
-    logLevel: "info",
-    optimizeDeps: {
-      include: ["vue", "pinia"],
-    },
-  },
-});
+  css: [
+    'primevue/resources/themes/lara-light-teal/theme.css',
+    'primevue/resources/primevue.css',
+    'primeicons/primeicons.css',
+    '/node_modules/primeflex/primeflex.css',
+    '/main.scss'
+  ],
+  modules: ['@nuxtjs/supabase'],
+})

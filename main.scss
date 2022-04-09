@@ -1,0 +1,84 @@
+@use "sass:color";
+
+$ever-estoria-white: #FFFDFA;
+$ever-estoria-light-brown: #CBB4A0;
+$ever-estoria-rose: #C3A39A;
+$ever-estoria-gray: #CFD0CD;
+$ever-estoria-dark-brown: #544B3D;
+
+.text-ever-estoria-white {
+  color: $ever-estoria-white !important;
+}
+
+.text-ever-estoria-light-brown {
+  color: $ever-estoria-light-brown !important;
+}
+
+.text-ever-estoria-rose {
+  color: $ever-estoria-rose !important;
+}
+
+.text-ever-estoria-gray {
+  color: $ever-estoria-gray !important;
+}
+
+.text-ever-estoria-dark-brown {
+  color: $ever-estoria-dark-brown !important;
+}
+
+.underline-ever-estoria-white {
+  border-bottom: 3px solid $ever-estoria-white !important;
+  padding-bottom: 5px;
+}
+
+.underline-ever-estoria-light-brown {
+  border-bottom: 3px solid $ever-estoria-light-brown !important;
+  padding-bottom: 5px;
+}
+
+.underline-ever-estoria-rose {
+  border-bottom: 3px solid $ever-estoria-rose !important;
+  padding-bottom: 5px;
+}
+
+.underline-ever-estoria-gray {
+  border-bottom: 3px solid $ever-estoria-gray !important;
+  padding-bottom: 5px;
+}
+
+.underline-ever-estoria-dark-brown {
+  border-bottom: 3px solid $ever-estoria-dark-brown !important;
+  padding-bottom: 5px;
+}
+
+.ever-estoria-white {
+  background-color: $ever-estoria-white !important;
+}
+
+.ever-estoria-white-30 {
+  background-color: rgba($ever-estoria-white, 0.3) !important;
+}
+
+.ever-estoria-light-brown {
+  background-color: $ever-estoria-light-brown !important;
+}
+
+.ever-estoria-rose {
+  background-color: $ever-estoria-rose !important;
+}
+
+.ever-estoria-gray {
+  background-color: $ever-estoria-gray !important;
+}
+
+.ever-estoria-dark-brown {
+  background-color: $ever-estoria-dark-brown !important;
+}
+
+.ever-estoria-dark-brown-30 {
+  background-color: rgba($ever-estoria-dark-brown, 0.3) !important;
+}
+
+body {
+  margin: 0px !important;
+}
