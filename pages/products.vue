@@ -1,20 +1,24 @@
 <template>
-  <div class="surface-section px-4 py-6 md:px-6 lg:px-8">
-    <div class="text-900 font-medium text-4xl mb-7">Spring Collection</div>
+  <div
+    class="surface-section px-4 py-4 md:px-6 lg:px-8"
+    v-for="{ id, name, products } in collections"
+    :key="'collection-' + id"
+  >
+    <div class="text-900 font-medium text-4xl mb-7">{{ name }} Collection</div>
     <div class="grid -mt-3 -ml-3 -mr-3">
       <div
         class="col-12 md:col-6 lg:col-3 mb-5"
-        v-for="{ id, name, summary, price } in products"
+        v-for="{ id, name, summary, price, images } in products"
         :key="id"
       >
         <div class="p-2">
           <div class="relative">
-            <img
-              src="https://s.cornershopapp.com/product-images/2758863.jpg?versionId=W6IRRGiRWD_dknK1GvRnLCmDa8a4jkWk"
-              class="w-full"
-            />
+            <div class="h-full w-full bg-white flex align-items-start">
+              <img :src="getPrimaryImageUrl(images)" class="w-full" />
+            </div>
+
             <button
-              :disabled="isInCart(id)"
+              :disabled="cartStore.isInCart(id)"
               type="button"
               v-ripple
               class="
@@ -22,29 +26,27 @@
                 py-2
                 px-3
                 absolute
-                bg-black-alpha-30
                 text-white
                 inline-flex
                 align-items-center
                 justify-content-center
-                hover:bg-black-alpha-40
                 transition-colors transition-duration-300
-                cursor-pointer
                 p-ripple
               "
               style="bottom: 1rem; left: 1rem; width: calc(100% - 2rem)"
               :class="{
-                'ever-estoria-light-brown': isInCart(id),
-                disabled: isInCart(id),
+                'ever-estoria-light-brown disabled': cartStore.isInCart(id),
+                'bg-black-alpha-30 cursor-pointer hover:bg-black-alpha-40':
+                  !cartStore.isInCart(id),
               }"
               @click="() => addToCart({ id, name, summary, price })"
             >
               <i
                 class="pi pi-shopping-cart mr-3 text-base"
-                v-if="!isInCart(id)"
+                v-if="!cartStore.isInCart(id)"
               ></i>
               <span class="text-base">{{
-                isInCart(id) ? "Added to Cart!" : "Add to Cart"
+                cartStore.isInCart(id) ? "Added to Cart!" : "Add to Cart"
               }}</span>
             </button>
           </div>
@@ -63,41 +65,34 @@
 
 <script setup>
 import { useCartStore } from "@/store/cart";
-const { addToCart, cart, isInCart } = useCartStore();
-const products = useState("products", () => {
-  return [
-    {
-      id: 1,
-      name: "Woman",
-      summary: "This is a summary",
-      price: 14.99,
-    },
-    {
-      id: 2,
-      name: "Woman",
-      summary: "This is a summary",
-      price: 14.99,
-    },
-  ];
-});
-// const products = useState([
-//   {
-//     id: 1,
-//     name: "Woman",
-//     summary: "This is a summary",
-//     price: 14.99,
-//   },
-// ]);
+import { useCollectionStore } from "@/store/collections";
+const cartStore = useCartStore();
+const { addToCart } = cartStore;
+const { setCollections, collections } = useCollectionStore();
+const supabase = useSupabaseClient();
 
-// const supabase = useSupabaseClient();
-// try {
-//   const { data, error } = supabase.from("products").select();
-//   if (error) {
-//     console.error(error.message);
-//   }
+try {
+  // Get active collections
+  const { data, error } = await supabase
+    .from("collections")
+    .select(
+      `id, name, description, products(id, name, price, summary, images(id, description, url, is_primary))`
+    )
+    .eq("active", true);
 
-//   products.value = data;
-// } catch (error) {
-//   throw error;
-// }
+  if (error) {
+    console.error(error.message);
+  }
+
+  setCollections(data);
+} catch (error) {
+  console.error(error.message);
+  throw error;
+}
+
+const getPrimaryImageUrl = (images) => {
+  const primary = images.find((image) => image.is_primary);
+  if (primary) return primary.url;
+  return images?.[0]?.url || "";
+};
 </script>

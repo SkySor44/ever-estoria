@@ -165,7 +165,8 @@
         "
       >
         <li>
-          <a
+          <NuxtLink
+            to="cart"
             v-ripple
             class="
               flex
@@ -182,15 +183,29 @@
               cursor-pointer
               transition-colors transition-duration-150
               p-ripple
+              overflow-visible
+              no-underline
             "
           >
             <i
               class="pi pi-shopping-cart text-base lg:text-2xl mr-2 lg:mr-0"
+              v-if="cartStore.cart.length === 0"
+            ></i>
+            <i
+              class="pi pi-shopping-cart text-base lg:text-2xl mr-2 lg:mr-0"
+              v-else
+              v-badge.info="cartStore.cart.length"
             ></i>
             <span class="block lg:hidden font-medium">Shopping Cart</span>
-          </a>
+          </NuxtLink>
         </li>
       </ul>
     </div>
   </nav>
 </template>
+
+<script setup>
+import { useCartStore } from "@/store/cart";
+
+const cartStore = useCartStore();
+</script>
