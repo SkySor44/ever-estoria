@@ -1,6 +1,6 @@
 <template>
   <div class="surface-section">
-    <div
+    <!-- <div
       class="
         flex
         w-full
@@ -91,12 +91,14 @@
           </a>
         </li>
       </ul>
-    </div>
+    </div> -->
 
     <div
       class="
         surface-section
         h-30rem
+        mb-5
+        md:mb-0
         bg-no-repeat bg-cover bg-center
         flex
         align-items-center
@@ -114,11 +116,7 @@
 
       <div class="grid -mt-3 -ml-3 -mr-3 flex-wrap">
         <div class="col flex px-3 flex-column mt-4 md:mt-0">
-          <img
-            src="images/blocks/ecommerce/categorypreview/category-preview-1-1.png"
-            class="w-full h-full"
-            alt="product"
-          />
+          <img class="w-full h-full" alt="product" />
           <p class="text-600 uppercase font-medium my-3">Subtitle</p>
           <a
             tabindex="0"
@@ -135,11 +133,7 @@
           ></a>
         </div>
         <div class="col flex px-3 flex-column mt-4 md:mt-0">
-          <img
-            src="images/blocks/ecommerce/categorypreview/category-preview-1-2.png"
-            class="w-full h-full"
-            alt="product"
-          />
+          <img class="w-full h-full" alt="product" />
           <p class="text-600 uppercase font-medium my-3">Subtitle</p>
           <a
             tabindex="0"
@@ -156,11 +150,7 @@
           ></a>
         </div>
         <div class="col flex px-3 flex-column mt-4 md:mt-0">
-          <img
-            src="images/blocks/ecommerce/categorypreview/category-preview-1-3.png"
-            class="w-full h-full"
-            alt="product"
-          />
+          <img class="w-full h-full" alt="product" />
           <p class="text-600 uppercase font-medium my-3">Subtitle</p>
           <a
             tabindex="0"
@@ -177,11 +167,7 @@
           ></a>
         </div>
         <div class="col flex px-3 flex-column mt-4 md:mt-0">
-          <img
-            src="images/blocks/ecommerce/categorypreview/category-preview-1-4.png"
-            class="w-full h-full"
-            alt="product"
-          />
+          <img class="w-full h-full" alt="product" />
           <p class="text-600 uppercase font-medium my-3">Subtitle</p>
           <a
             tabindex="0"
@@ -198,11 +184,7 @@
           ></a>
         </div>
         <div class="col flex px-3 flex-column mt-4 md:mt-0">
-          <img
-            src="images/blocks/ecommerce/categorypreview/category-preview-1-5.png"
-            class="w-full h-full"
-            alt="product"
-          />
+          <img class="w-full h-full" alt="product" />
           <p class="text-600 uppercase font-medium my-3">Subtitle</p>
           <a
             tabindex="0"
@@ -229,10 +211,7 @@
         <div class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
           <div class="p-2">
             <div class="relative">
-              <img
-                src="images/blocks/ecommerce/productlist/product-list-1-1.png"
-                class="w-full"
-              />
+              <img class="w-full" />
               <button
                 v-ripple
                 class="
@@ -267,10 +246,7 @@
         <div class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
           <div class="p-2">
             <div class="relative">
-              <img
-                src="images/blocks/ecommerce/productlist/product-list-1-2.png"
-                class="w-full"
-              />
+              <img class="w-full" />
               <button
                 v-ripple
                 class="
@@ -305,10 +281,7 @@
         <div class="col-12 md:col-6 lg:col-3 mb-3 lg:mb-0">
           <div class="p-2">
             <div class="relative">
-              <img
-                src="images/blocks/ecommerce/productlist/product-list-1-3.png"
-                class="w-full"
-              />
+              <img class="w-full" />
               <button
                 v-ripple
                 class="
@@ -343,10 +316,7 @@
         <div class="col-12 md:col-6 lg:col-3">
           <div class="p-2">
             <div class="relative">
-              <img
-                src="images/blocks/ecommerce/productlist/product-list-1-4.png"
-                class="w-full"
-              />
+              <img class="w-full" />
               <button
                 v-ripple
                 class="
@@ -445,7 +415,7 @@
       <div
         class="w-full md:w-6 bg-no-repeat bg-cover"
         style="
-          background: url('images/blocks/ecommerce/storefront/storefront-1-17.png');
+          /* background: url('images/blocks/ecommerce/storefront/storefront-1-17.png'); */
           min-height: 400px;
         "
       ></div>
@@ -481,11 +451,7 @@
             lg:align-items-start
           "
         >
-          <img
-            src="images/blocks/logos/peak-700.svg"
-            class="w-9rem mx-auto lg:mx-0"
-            alt="Peak logo"
-          />
+          <img class="w-9rem mx-auto lg:mx-0" alt="Peak logo" />
           <div
             class="
               flex
@@ -764,6 +730,13 @@
     </div>
   </div>
 </template>
+
+<script setup>
+definePageMeta({
+  pageTransition: false,
+  layoutTransition: false,
+});
+</script>
 
 <style scoped>
 #hero-section {

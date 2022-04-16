@@ -13,12 +13,14 @@
     "
     style="min-height: 80px"
   >
-    <img
-      src="https://wpmlpaqmiveicmhhdkjq.supabase.co/storage/v1/object/sign/website-images/main-logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ3ZWJzaXRlLWltYWdlcy9tYWluLWxvZ28ucG5nIiwiaWF0IjoxNjQ5NTQxMjIwLCJleHAiOjE5NjQ5MDEyMjB9.GhqdkRuKh37d5XI3p5cHEm3T3OLhJKI3d8KiXo0gO2M"
-      alt="Image"
-      height="40"
-      class="mr-0 lg:mr-6"
-    />
+    <NuxtLink to="/">
+      <img
+        src="https://wpmlpaqmiveicmhhdkjq.supabase.co/storage/v1/object/sign/website-images/main-logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ3ZWJzaXRlLWltYWdlcy9tYWluLWxvZ28ucG5nIiwiaWF0IjoxNjQ5NTQxMjIwLCJleHAiOjE5NjQ5MDEyMjB9.GhqdkRuKh37d5XI3p5cHEm3T3OLhJKI3d8KiXo0gO2M"
+        alt="Image"
+        height="40"
+        class="mr-0 lg:mr-6"
+      />
+    </NuxtLink>
     <a
       v-ripple
       class="cursor-pointer block lg:hidden text-700 mt-1 p-ripple"

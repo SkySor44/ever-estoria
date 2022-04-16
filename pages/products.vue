@@ -1,7 +1,7 @@
 <template>
   <div
     class="surface-section px-4 py-4 md:px-6 lg:px-8"
-    v-for="{ id, name, products } in collections"
+    v-for="{ id, name, products } in collectionStore.collections"
     :key="'collection-' + id"
   >
     <div class="text-900 font-medium text-4xl mb-7">{{ name }} Collection</div>
@@ -39,7 +39,7 @@
                 'bg-black-alpha-30 cursor-pointer hover:bg-black-alpha-40':
                   !cartStore.isInCart(id),
               }"
-              @click="() => addToCart({ id, name, summary, price })"
+              @click="() => addToCart({ id, name, summary, price, images })"
             >
               <i
                 class="pi pi-shopping-cart mr-3 text-base"
@@ -66,29 +66,17 @@
 <script setup>
 import { useCartStore } from "@/store/cart";
 import { useCollectionStore } from "@/store/collections";
+
 const cartStore = useCartStore();
 const { addToCart } = cartStore;
-const { setCollections, collections } = useCollectionStore();
-const supabase = useSupabaseClient();
+const collectionStore = useCollectionStore();
 
-try {
-  // Get active collections
-  const { data, error } = await supabase
-    .from("collections")
-    .select(
-      `id, name, description, products(id, name, price, summary, images(id, description, url, is_primary))`
-    )
-    .eq("active", true);
+definePageMeta({
+  pageTransition: false,
+  layoutTransition: false,
+});
 
-  if (error) {
-    console.error(error.message);
-  }
-
-  setCollections(data);
-} catch (error) {
-  console.error(error.message);
-  throw error;
-}
+collectionStore.initCollections();
 
 const getPrimaryImageUrl = (images) => {
   const primary = images.find((image) => image.is_primary);

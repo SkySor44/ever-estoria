@@ -13,5 +13,11 @@ export default defineNuxtConfig({
     url: process.env.SUPABASE_URL,
     key: process.env.SUPABASE_KEY,
   },
+  runtimeConfig: {
+    stripeSecret: process.env.STRIPE_SECRET_API_KEY,
+    public: {
+      stripePublicKey: 'pk_test_51Kp2h5CVGaMgucvpbryONcPGQtvO5zpl8U5sRrjgC25XcVJsJzNy88rMC3mZULLg7taRLQZB3I4RjnUpUW2mxIT000jlgHRH0G'
+    }
+  },
   modules: ['@nuxtjs/supabase', '@pinia/nuxt'],
 })
